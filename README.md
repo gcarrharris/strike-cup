@@ -21,6 +21,16 @@ Copy trading asks people to risk money on traders they barely know. Strike Cup t
 
 Drafted traders refresh from Strike every minute.
 
+## Season format (launching soon)
+
+The full Strike Cup format, shown in the promo video, is next on the build list:
+
+- **Re-draft every week.** Pick five fresh traders each week. Rosters lock when the week starts, and each trader's return is measured from that moment, so everyone is scored over the same window.
+- **Weekly Winners.** The top score each week takes the week.
+- **4-week seasons.** Your four weekly scores add up, and the best total is crowned Season-Long Champion and lifts the Strike Cup.
+
+Today's version is a live single-week game: the draft, filters, salary cap, scoring, and leaderboard all work with real Strike data, and the rival teams on the leaderboard are demo teams until shared leagues launch.
+
 ## Strike integration
 
 Strike Cup uses Strike's public, read-only copy-trading API (no API key needed):
@@ -52,8 +62,8 @@ If the page is opened without the server, it falls back to sample traders in the
 
 ## Roadmap
 
-- **Shared leagues:** save rosters on the server so friends join the same league and see each other's teams
-- **Weekly seasons:** lock rosters at the start of each week, crown a weekly champion, keep season standings
+- **Shared leagues:** save rosters in a database so real players compete on the same leaderboard
+- **Season format:** weekly roster locks and re-drafts, Weekly Winners, and 4-week seasons with a Season-Long Champion
 - **Wallet sign-in:** sign in with a Cardano wallet and show your Strike handle on the leaderboard
 - **"Copy my roster":** one tap to follow your drafted traders on Strike
 - **Prizes:** STRIKE token rewards for weekly winners

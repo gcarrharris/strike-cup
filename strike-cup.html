@@ -116,6 +116,9 @@ input[type=search],select{font:inherit;font-size:14px;color:var(--ink);backgroun
 .rules{padding:16px 18px;font-size:14px}
 .rules h2{font-size:18px;font-weight:800;margin:4px 0 6px}
 .rules p{margin:0 0 10px;max-width:62ch;color:var(--muted)}
+.rules p b{color:var(--ink)}
+.soon{display:inline-block;vertical-align:3px;margin-left:8px;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--mint-text);border:1px solid var(--mint);border-radius:6px;padding:2px 8px}
+.lbnote{color:var(--muted);font-size:13px;margin:10px 4px 0}
 .flash{animation:flash .9s ease-out}
 @keyframes flash{from{background:color-mix(in srgb,var(--mint) 22%,transparent)}to{background:transparent}}
 @media (prefers-reduced-motion:reduce){.flash{animation:none}}
@@ -449,7 +452,7 @@ function render(){
     const s=standings();
     v.innerHTML=`<section class="panel lb">${s.map(t=>{const moved=prevRank[t.n]!==undefined&&prevRank[t.n]!==t.pos;
       return `<div class="row${t.me?" me":""}${moved?" flash":""}"><div class="pos">${medal(t.pos)}${t.pos}</div><div class="who"><b>${esc(t.n)}</b></div><div class="stat num ${cls(t.p)}">${fmt(t.p)}<small>points</small></div></div>`}).join("")}
-      ${roster.length<SIZE?`<div class="empty">Finish your draft to join the leaderboard. You can name your team on the My team tab.</div>`:""}</section>`;
+      ${roster.length<SIZE?`<div class="empty">Finish your draft to join the leaderboard. You can name your team on the My team tab.</div>`:""}</section><p class="lbnote">Rival teams are demo teams for now. Shared leagues with real players, weekly winners and 4-week seasons are launching soon.</p>`;
     s.forEach(t=>prevRank[t.n]=t.pos);
   }else{
     v.innerHTML=`<section class="panel rules"><h2>How scoring works</h2>
@@ -458,7 +461,11 @@ function render(){
       <p>Only accounts with at least $1k are draftable, which keeps out near-empty accounts whose percentages mean nothing.</p>
       <h2>Draft rules</h2>
       <p>Pick five traders under a $50k salary cap. Salaries follow Strike’s copy score, so proven traders cost more and you’ll need a couple of bargains.</p>
-      <p>Percent returns keep it fair: a small account can outscore a whale.</p></section>`;
+      <p>Percent returns keep it fair: a small account can outscore a whale.</p>
+      <h2>Season format <span class="soon">Launching soon</span></h2>
+      <p><b>Re-draft every week.</b> Pick five fresh traders each week. Rosters lock when the week starts, and each trader’s return is measured from that moment.</p>
+      <p><b>Weekly Winners.</b> The top score each week takes the week.</p>
+      <p><b>4-week seasons.</b> Your four weekly scores add up, and the best total is crowned Season-Long Champion and lifts the Strike Cup.</p></section>`;
   }
   renderCap();
 }
